@@ -5,6 +5,7 @@ Jalankan:  python -m backend.app
 from __future__ import annotations
 
 import os
+import tempfile
 from pathlib import Path
 
 from flask import Flask, jsonify, send_from_directory
@@ -25,9 +26,13 @@ def create_app(konfigurasi: dict | None = None) -> Flask:
         pass
 
     app = Flask(__name__, static_folder=str(FRONTEND), static_url_path="")
+    di_vercel = bool(os.environ.get("VERCEL"))
+    # Vercel: folder proyek read-only, hanya /tmp yang bisa ditulis (dan tidak permanen).
+    db_bawaan = Path(tempfile.gettempdir()) / "hitungruntut.sqlite" if di_vercel else AKAR / "instance" / "hitungruntut.sqlite"
     app.config.update(
-        DATABASE=os.environ.get("HR_DATABASE", str(AKAR / "instance" / "hitungruntut.sqlite")),
-        PENELITI_PIN=os.environ.get("PENELITI_PIN", "1234"),
+        DATABASE=os.environ.get("HR_DATABASE", str(db_bawaan)),
+        # Di internet, panel peneliti mati sampai PENELITI_PIN diisi di pengaturan Vercel.
+        PENELITI_PIN=os.environ.get("PENELITI_PIN", "" if di_vercel else "1234"),
         JSON_AS_ASCII=False,
     )
     if konfigurasi:

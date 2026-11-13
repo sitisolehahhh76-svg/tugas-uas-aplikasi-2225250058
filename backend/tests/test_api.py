@@ -110,6 +110,26 @@ def test_peneliti_perlu_pin(client):
     assert csv.status_code == 200 and "SALAH_FAKTA" in csv.data.decode("utf-8-sig")
 
 
+def test_mode_vercel(monkeypatch, tmp_path):
+    """Di Vercel: DB di folder temp, panel peneliti tertutup bila PIN belum diatur."""
+    monkeypatch.setenv("VERCEL", "1")
+    monkeypatch.delenv("PENELITI_PIN", raising=False)
+    monkeypatch.delenv("HR_DATABASE", raising=False)
+    monkeypatch.setattr("tempfile.gettempdir", lambda: str(tmp_path))
+    monkeypatch.setattr("dotenv.load_dotenv", lambda *a, **k: None)
+    app = create_app()
+    assert app.config["DATABASE"].startswith(str(tmp_path))
+    c = app.test_client()
+    assert c.get("/").status_code == 200
+    assert c.get("/api/peneliti/rekap?pin=").status_code == 403
+    assert c.get("/api/peneliti/rekap?pin=1234").status_code == 403
+
+
+def test_titik_masuk_vercel():
+    import app as titik_masuk
+    assert titik_masuk.app.test_client().get("/api/misi").status_code == 200
+
+
 def test_soal_sejenis_dan_pemanasan(client):
     r = data(client.post("/api/soal-sejenis", json={"ekspresi": "36 ÷ 6 × 2 − 3"}))
     assert r["ekspresi"] != "36 ÷ 6 × 2 − 3"

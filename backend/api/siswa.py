@@ -97,8 +97,11 @@ def rapor(kode):
 # ---------- panel peneliti ----------
 
 def _pin_benar() -> bool:
+    benar = current_app.config["PENELITI_PIN"]
+    if not benar:  # PIN belum diatur → panel ditutup
+        return False
     pin = request.args.get("pin", "") or request.headers.get("X-PIN", "")
-    return hmac.compare_digest(pin, current_app.config["PENELITI_PIN"])
+    return hmac.compare_digest(pin, benar)
 
 
 @bp.get("/peneliti/rekap")
