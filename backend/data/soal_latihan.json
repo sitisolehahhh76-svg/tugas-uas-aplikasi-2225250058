@@ -1,0 +1,73 @@
+{
+  "aturan": [
+    {
+      "id": "aturan-1",
+      "judul": "× dan ÷ didahulukan dari + dan −",
+      "contoh": "12 + 6 × 3",
+      "kenapa": "Perkalian adalah penjumlahan berulang yang sudah 'dikemas'. Kamu punya 12 kelereng, lalu dapat 6 kantong berisi 3 kelereng. Isi kantong dihitung dulu (6 × 3 = 18), baru dijumlah: 12 + 18 = 30.",
+      "kode": ["IL01", "EL05"]
+    },
+    {
+      "id": "aturan-2",
+      "judul": "Isi tanda kurung dikerjakan paling dulu",
+      "contoh": "(24 − 8) ÷ 4 + 5",
+      "kenapa": "Tanda kurung artinya 'satukan bagian ini dulu'. Ada 24 kue, 8 sudah dimakan. Sisa kuenya (24 − 8) harus diketahui dulu sebelum dibagi ke 4 teman.",
+      "kode": ["IL02"]
+    },
+    {
+      "id": "aturan-3",
+      "judul": "× dan ÷ setara: kerjakan dari kiri ke kanan",
+      "contoh": "36 ÷ 6 × 2 − 3",
+      "kenapa": "× tidak selalu lebih dulu dari ÷. Keduanya setingkat. Kalau × dikerjakan dulu, hasilnya 36 ÷ 12 = 3 — berbeda! Karena itu disepakati: yang paling kiri dikerjakan dulu.",
+      "kode": ["IL03"]
+    },
+    {
+      "id": "aturan-4",
+      "judul": "+ dan − setara: kerjakan dari kiri ke kanan",
+      "contoh": "20 − 5 + 3",
+      "kenapa": "Uangmu Rp20 ribu, dipakai belanja Rp5 ribu, lalu diberi Rp3 ribu. Urutannya sesuai kejadian: 20 − 5 = 15, lalu 15 + 3 = 18. Kalau + dulu: 20 − 8 = 12, salah.",
+      "kode": ["IL03"]
+    }
+  ],
+  "level": [
+    {
+      "id": "dasar",
+      "nama": "Latihan Dasar",
+      "keterangan": "Dua operasi",
+      "soal": [
+        {"id": "dasar-1", "mode": "contoh", "ekspresi": "12 + 6 × 3", "fokus": ["IL01"]},
+        {"id": "dasar-2", "mode": "pilih", "ekspresi_list": ["20 − 12 ÷ 4", "(7 + 5) × 2", "18 ÷ 3 × 2", "9 + 4 × 5"], "fokus": ["IL01", "IL02", "IL03"]},
+        {"id": "dasar-3", "mode": "lengkapi", "ekspresi": "20 − 12 ÷ 4", "kosong": 1, "fokus": ["IL01"]},
+        {"id": "dasar-4", "mode": "mandiri", "ekspresi": "(7 + 5) × 2", "fokus": ["IL02"]},
+        {"id": "dasar-5", "mode": "mandiri", "ekspresi": "18 ÷ 3 × 2", "fokus": ["IL03"]},
+        {"id": "dasar-6", "mode": "mandiri", "ekspresi": "30 − 4 × 6", "fokus": ["IL01"]}
+      ]
+    },
+    {
+      "id": "sedang",
+      "nama": "Latihan Sedang",
+      "keterangan": "Tiga operasi, ada kurung",
+      "soal": [
+        {"id": "sedang-1", "mode": "contoh", "ekspresi": "(24 − 8) ÷ 4 + 5", "fokus": ["IL02"]},
+        {"id": "sedang-2", "mode": "pilih", "ekspresi_list": ["36 ÷ 6 × 2 − 3", "48 ÷ (2 × 4) + 7", "5 + 3 × (10 − 4)", "40 − 24 ÷ 6 × 2"], "fokus": ["IL02", "IL03"]},
+        {"id": "sedang-3", "mode": "lengkapi", "ekspresi": "36 ÷ 6 × 2 − 3", "kosong": 2, "fokus": ["IL03"]},
+        {"id": "sedang-4", "mode": "mandiri", "ekspresi": "48 ÷ (2 × 4) + 7", "fokus": ["IL02", "IL03"]},
+        {"id": "sedang-5", "mode": "mandiri", "ekspresi": "5 + 3 × (10 − 4)", "fokus": ["IL01", "IL02"]},
+        {"id": "sedang-6", "mode": "mandiri", "ekspresi": "40 − 24 ÷ 6 × 2", "fokus": ["IL03"]}
+      ]
+    },
+    {
+      "id": "lanjutan",
+      "nama": "Latihan Lanjutan",
+      "keterangan": "Empat operasi & bilangan ribuan",
+      "soal": [
+        {"id": "lanjutan-1", "mode": "contoh", "ekspresi": "100 − 4 × 15 + 30 ÷ 5", "fokus": ["IL04"]},
+        {"id": "lanjutan-2", "mode": "pilih", "ekspresi_list": ["3 × 35.000 + 10.000", "150.000 − (2 × 35.000 + 3 × 20.000)", "60 ÷ 5 × 3 − 8 + 2", "2 × (45 − 15) ÷ 6"], "fokus": ["IL02", "IL03", "IL04"]},
+        {"id": "lanjutan-3", "mode": "lengkapi", "ekspresi": "150.000 − (2 × 35.000 + 3 × 20.000)", "kosong": 2, "fokus": ["IL02", "IL04"]},
+        {"id": "lanjutan-4", "mode": "mandiri", "ekspresi": "60 ÷ 5 × 3 − 8 + 2", "fokus": ["IL03", "IL04"]},
+        {"id": "lanjutan-5", "mode": "mandiri", "ekspresi": "2 × (45 − 15) ÷ 6", "fokus": ["IL02"]},
+        {"id": "lanjutan-6", "mode": "mandiri", "ekspresi": "500.000 − 3 × 45.000 + 25.000", "fokus": ["IL04"]}
+      ]
+    }
+  ]
+}

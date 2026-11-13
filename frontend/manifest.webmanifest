@@ -1,0 +1,13 @@
+{
+  "name": "HitungRuntut — Operasi Hitung Campuran",
+  "short_name": "HitungRuntut",
+  "description": "Game belajar operasi hitung bilangan campuran langkah demi langkah.",
+  "lang": "id",
+  "start_url": "/#/peta",
+  "display": "standalone",
+  "background_color": "#FAFAF7",
+  "theme_color": "#2F5BD3",
+  "icons": [
+    { "src": "/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }
+  ]
+}
